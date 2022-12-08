@@ -1,0 +1,17 @@
+{
+  "name": "lnc/near_login",
+  "description": "Plugin to login using near",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "techbridge",
+      "email": "info@techbridge.ca"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "TechbridgeNearLogin\\": ""
+    }
+  }
+}
