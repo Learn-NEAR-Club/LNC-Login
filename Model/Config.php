@@ -24,21 +24,6 @@ class Config
     const DEFAULT_LANG = 'en';
 
     /**
-     *  Script directory const
-     */
-    const SCRIPTS_PATH = '/wp-content/plugins/'. self::PLUGIN_NAME . '/public/';
-
-    /**
-     *  Style directory const
-     */
-    const STYLES_PATH = '/wp-content/plugins/'. self::PLUGIN_NAME . '/public/css';
-
-    /**
-     *  Languages path const
-     */
-    const LANGUAGES_PATH  = '/wp-content/plugins/'. self::PLUGIN_NAME . '/lang';
-
-    /**
      * Templates dir const
      */
     const TEMPLATES_DIR = 'templates';
@@ -63,25 +48,11 @@ class Config
     private string $_scriptsPath;
 
     /**
-     * Path to styles directory
-     *
-     * @var string $_stylesPath
-     */
-    private string $_stylesPath;
-
-    /**
      * Path to templates.
      *
      * @var $_templatesPath
      */
     private string $_templatesPath;
-
-    /**
-     * Path to languages dir.
-     *
-     * @var string $_langPath
-     */
-    private string $_langPath;
 
     /**
      * @var $_config
@@ -103,10 +74,8 @@ class Config
     {
         $this->_basePath = plugin_dir_path(__DIR__);
         $this->_viewsPath = self::getBasePath() . self::VIEWS_DIR;
-        $this->_scriptsPath = self::SCRIPTS_PATH;
-        $this->_stylesPath = self::STYLES_PATH;
+        $this->_scriptsPath = plugin_dir_url(__DIR__) . '/public/';
         $this->_templatesPath = self::getBasePath() . self::TEMPLATES_DIR;
-        $this->_langPath = self::LANGUAGES_PATH;
     }
 
     /**
@@ -114,7 +83,7 @@ class Config
      *
      * @return string
      */
-    public function getPluginName()
+    public function getPluginName(): string
     {
         return self::PLUGIN_NAME;
     }
@@ -147,26 +116,6 @@ class Config
     public function getScriptsPath(): string
     {
         return $this->_scriptsPath;
-    }
-
-    /**
-     * Method to get path to styles directory
-     *
-     * @return string
-     */
-    public function getStylesPath(): string
-    {
-        return $this->_stylesPath = self::STYLES_PATH;
-    }
-
-    /**
-     * Path to languages dir.
-     *
-     * @return string
-     */
-    public function getLangPath(): string
-    {
-        return $this->_langPath;
     }
 
     /**

@@ -16,7 +16,7 @@ class Data
      */
     public static function clearString($string): string
     {
-        return trim(strip_tags($string));
+        return sanitize_text_field(trim(strip_tags($string)));
     }
 
     /**

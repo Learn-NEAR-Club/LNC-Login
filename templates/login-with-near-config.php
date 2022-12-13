@@ -1,9 +1,10 @@
 <?php
 
 use TechbridgeNearLogin\Model\Constructor\Constructor;
+use \TechbridgeNearLogin\Helper\Data;
 
 ob_start(); ?>
-<?php if (isset($args) && $args->optionsGroup): ?>
+<?php if (isset($args) && isset($args->optionsGroup)): ?>
     <?php
     $options = Constructor::$options;
     $contractID = $options['contract_id'] ?? '';
@@ -21,8 +22,8 @@ ob_start(); ?>
                 <label>
                     <span><?php _e('Contract id'); ?></span>
                     <input type="text"
-                           name="<?php echo "$args->optionsGroup[contract_id]"; ?>"
-                           value="<?php echo $contractID; ?>"
+                           name="<?php echo Data::clearString("$args->optionsGroup[contract_id]"); ?>"
+                           value="<?php echo Data::clearString($contractID); ?>"
                            size="50"
                     />
                 </label>
@@ -32,8 +33,8 @@ ob_start(); ?>
                 <label>
                     <span><?php _e('Login button text'); ?></span>
                     <input type="text"
-                           name="<?php echo "$args->optionsGroup[login_button_text]"; ?>"
-                           value="<?php echo $loginButtonText; ?>"
+                           name="<?php echo Data::clearString("$args->optionsGroup[login_button_text]"); ?>"
+                           value="<?php echo Data::clearString($loginButtonText); ?>"
                            size="50"
                     />
                 </label>
@@ -44,8 +45,8 @@ ob_start(); ?>
                 <label>
                     <span><?php _e('Login button extra classes'); ?></span>
                     <input type="text"
-                           name="<?php echo "$args->optionsGroup[login_button_extra_classes]"; ?>"
-                           value="<?php echo $loginButtonExtraClasses; ?>"
+                           name="<?php echo Data::clearString("$args->optionsGroup[login_button_extra_classes]"); ?>"
+                           value="<?php echo Data::clearString($loginButtonExtraClasses); ?>"
                            size="50"
                     />
                 </label>
@@ -56,8 +57,8 @@ ob_start(); ?>
                 <label>
                     <span><?php _e('Logout button text'); ?></span>
                     <input type="text"
-                           name="<?php echo "$args->optionsGroup[logout_button_text]"; ?>"
-                           value="<?php echo $logoutButtonText; ?>"
+                           name="<?php echo Data::clearString("$args->optionsGroup[logout_button_text]"); ?>"
+                           value="<?php echo Data::clearString($logoutButtonText); ?>"
                            size="50"
                     />
                 </label>
@@ -68,8 +69,8 @@ ob_start(); ?>
                 <label>
                     <span><?php _e('Logout button extra classes'); ?></span>
                     <input type="text"
-                           name="<?php echo "$args->optionsGroup[logout_button_extra_classes]"; ?>"
-                           value="<?php echo $logoutButtonExtraClasses; ?>"
+                           name="<?php echo Data::clearString("$args->optionsGroup[logout_button_extra_classes]"); ?>"
+                           value="<?php echo Data::clearString($logoutButtonExtraClasses); ?>"
                            size="50"
                     />
                 </label>
@@ -79,7 +80,7 @@ ob_start(); ?>
             <div>
                 <label>
                     <span><?php _e('Enable redeem confirmation'); ?></span>
-                    <select name="<?php echo "$args->optionsGroup[network]"; ?>">
+                    <select name="<?php echo Data::clearString("$args->optionsGroup[network]"); ?>">
                         <?php $selected = $network == 'mainnet' ? 'selected = "selected"' : ''; ?>
                         <option value="testnet"><?php _e('Testnet', 'tb-login-with-near'); ?></option>
                         <option value="mainnet" <?php echo $selected; ?> ><?php _e('Mainnet', 'tb-login-with-near'); ?></option>
