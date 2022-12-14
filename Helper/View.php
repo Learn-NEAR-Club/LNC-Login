@@ -23,21 +23,21 @@ class View
      * @param $args
      * @return bool
      */
-    public static function view($templatePath , $args = null): bool
+    public static function view($templatePath, $args = null): bool
     {
         try {
             $error = __('You have some problems with template');
             if (!file_exists($templatePath)) {
                 throw new \Exception($error);
             }
-            $content = require_once ($templatePath);
-            if ($content !='') {
-                echo $content;
+            $content = require_once($templatePath);
+            if ($content != '') {
+                echo wp_kses($content, FormData::getAllowedTagsForFormEscape());
                 return true;
             }
             throw new \Exception($error);
         } catch (\Exception $e) {
-            echo $e->getMessage();
+            echo esc_html($e->getMessage());
         }
         return false;
     }
