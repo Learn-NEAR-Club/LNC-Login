@@ -3,7 +3,7 @@
 namespace TechbridgeNearLogin\Helper;
 
 /**
- * Class Data
+ * Class FormData
  * @package TechbridgeNearLogin\Helper
  */
 class FormData
