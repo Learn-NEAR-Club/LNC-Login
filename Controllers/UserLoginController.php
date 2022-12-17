@@ -2,8 +2,6 @@
 
 namespace TechbridgeNearLogin\Controllers;
 
-use TechbridgeNearLogin\Helper\Data;
-
 class UserLoginController
 
 {
@@ -25,7 +23,7 @@ class UserLoginController
             'errorMessage' => 'Something goes wrong, please try again later',
         ];
         if (isset($_POST['account'])) {
-            $account = Data::clearString($_POST['account']);
+            $account = sanitize_text_field($_POST['account']);
             $userEmail = $this->getUserEmailByAccount($account);
 
             $user = get_user_by('email', $userEmail);
