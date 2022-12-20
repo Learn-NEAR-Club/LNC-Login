@@ -21,8 +21,8 @@ ob_start(); ?>
                 <label>
                     <span><?php esc_html_e('Contract id'); ?></span>
                     <input type="text"
-                           name="<?php echo sanitize_text_field("$args->optionsGroup[contract_id]"); ?>"
-                           value="<?php echo sanitize_text_field($contractID); ?>"
+                           name="<?php echo esc_html("$args->optionsGroup[contract_id]"); ?>"
+                           value="<?php echo esc_html($contractID); ?>"
                            size="50"
                     />
                 </label>
@@ -32,8 +32,8 @@ ob_start(); ?>
                 <label>
                     <span><?php esc_html_e('Login button text'); ?></span>
                     <input type="text"
-                           name="<?php echo sanitize_text_field("$args->optionsGroup[login_button_text]"); ?>"
-                           value="<?php echo sanitize_text_field($loginButtonText); ?>"
+                           name="<?php echo esc_html("$args->optionsGroup[login_button_text]"); ?>"
+                           value="<?php echo esc_html($loginButtonText); ?>"
                            size="50"
                     />
                 </label>
@@ -44,8 +44,8 @@ ob_start(); ?>
                 <label>
                     <span><?php esc_html_e('Login button extra classes'); ?></span>
                     <input type="text"
-                           name="<?php echo sanitize_text_field("$args->optionsGroup[login_button_extra_classes]"); ?>"
-                           value="<?php echo sanitize_text_field($loginButtonExtraClasses); ?>"
+                           name="<?php echo esc_html("$args->optionsGroup[login_button_extra_classes]"); ?>"
+                           value="<?php echo esc_html($loginButtonExtraClasses); ?>"
                            size="50"
                     />
                 </label>
@@ -56,8 +56,8 @@ ob_start(); ?>
                 <label>
                     <span><?php esc_html_e('Logout button text'); ?></span>
                     <input type="text"
-                           name="<?php echo sanitize_text_field("$args->optionsGroup[logout_button_text]"); ?>"
-                           value="<?php echo sanitize_text_field($logoutButtonText); ?>"
+                           name="<?php echo esc_html("$args->optionsGroup[logout_button_text]"); ?>"
+                           value="<?php echo esc_html($logoutButtonText); ?>"
                            size="50"
                     />
                 </label>
@@ -68,8 +68,8 @@ ob_start(); ?>
                 <label>
                     <span><?php esc_html_e('Logout button extra classes'); ?></span>
                     <input type="text"
-                           name="<?php echo sanitize_text_field("$args->optionsGroup[logout_button_extra_classes]"); ?>"
-                           value="<?php echo sanitize_text_field($logoutButtonExtraClasses); ?>"
+                           name="<?php echo esc_html("$args->optionsGroup[logout_button_extra_classes]"); ?>"
+                           value="<?php echo esc_html($logoutButtonExtraClasses); ?>"
                            size="50"
                     />
                 </label>
@@ -79,10 +79,10 @@ ob_start(); ?>
             <div>
                 <label>
                     <span><?php esc_html_e('Enable redeem confirmation'); ?></span>
-                    <select name="<?php echo sanitize_text_field("$args->optionsGroup[network]"); ?>">
+                    <select name="<?php echo esc_html("$args->optionsGroup[network]"); ?>">
                         <?php $selected = $network == 'mainnet' ? 'selected = "selected"' : ''; ?>
                         <option value="testnet"><?php esc_html_e('Testnet', 'tb-login-with-near'); ?></option>
-                        <option value="mainnet" <?php echo sanitize_text_field($selected); ?> ><?php esc_html_e('Mainnet', 'tb-login-with-near'); ?></option>
+                        <option value="mainnet" <?php echo esc_html($selected); ?> ><?php esc_html_e('Mainnet', 'tb-login-with-near'); ?></option>
                     </select>
                 </label>
             </div>
