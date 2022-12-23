@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: LNC Login With Near
+ * Plugin Name: Login With NEAR
  * Description: web3 login with NEAR
  * Version: 0.0.1
- * Author: Learn near club
+ * Author: Learn NEAR Club
  * Author URI: http://learnnear.club/
  */
 
