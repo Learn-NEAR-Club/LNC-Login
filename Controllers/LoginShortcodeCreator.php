@@ -1,8 +1,8 @@
 <?php
 
-namespace TechbridgeNearLogin\Controllers;
+namespace LNCNearLogin\Controllers;
 
-use TechbridgeNearLogin\Model\Constructor\Constructor;
+use LNCNearLogin\Model\Constructor\Constructor;
 
 class LoginShortcodeCreator
 {

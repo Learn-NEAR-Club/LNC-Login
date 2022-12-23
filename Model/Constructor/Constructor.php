@@ -1,17 +1,17 @@
 <?php
 
-namespace TechbridgeNearLogin\Model\Constructor;
+namespace LNCNearLogin\Model\Constructor;
 
-use TechbridgeNearLogin\Controllers\UserLoginController;
-use TechbridgeNearLogin\Controllers\PageConstructor;
-use TechbridgeNearLogin\Model\Config;
-use TechbridgeNearLogin\Controllers\LoginShortcodeCreator;
+use LNCNearLogin\Controllers\UserLoginController;
+use LNCNearLogin\Controllers\PageConstructor;
+use LNCNearLogin\Model\Config;
+use LNCNearLogin\Controllers\LoginShortcodeCreator;
 
 /**
  * Init all main functionality
  *
  * Class Constructor
- * @package TechbridgeNearLogin\Model\Constructor
+ * @package LNCNearLogin\Model\Constructor
  */
 class Constructor
 {

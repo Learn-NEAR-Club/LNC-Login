@@ -4,14 +4,13 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "techbridge",
-      "email": "info@techbridge.ca"
+      "name": "lnc"
     }
   ],
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "TechbridgeNearLogin\\": ""
+      "LNCNearLogin\\": ""
     }
   }
 }

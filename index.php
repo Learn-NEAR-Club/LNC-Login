@@ -7,7 +7,7 @@
  * Author URI: http://learnnear.club/
  */
 
-use \TechbridgeNearLogin\Model\Constructor\Constructor;
+use \LNCNearLogin\Model\Constructor\Constructor;
 
 $composerLoader =  __DIR__ . '/vendor/autoload.php';
 if (file_exists($composerLoader)) {

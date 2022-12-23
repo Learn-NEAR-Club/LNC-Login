@@ -1,13 +1,13 @@
 <?php
 
-namespace TechbridgeNearLogin\Helper;
+namespace LNCNearLogin\Helper;
 
-use TechbridgeNearLogin\Model\Config;
+use LNCNearLogin\Model\Config;
 
 /**
  * Class View
  *
- * @package TechbridgeNearLogin\Helper
+ * @package LNCNearLogin\Helper
  */
 class View
 {

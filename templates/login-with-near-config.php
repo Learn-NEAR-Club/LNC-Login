@@ -1,6 +1,6 @@
 <?php
 
-use TechbridgeNearLogin\Model\Constructor\Constructor;
+use LNCNearLogin\Model\Constructor\Constructor;
 
 ob_start(); ?>
 <?php if (isset($args) && isset($args->optionsGroup)): ?>

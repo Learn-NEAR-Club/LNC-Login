@@ -1,13 +1,13 @@
 <?php
 
-namespace TechbridgeNearLogin\Model\Constructor;
+namespace LNCNearLogin\Model\Constructor;
 
-use TechbridgeNearLogin\Model\Abstractions\AdminPages;
-use TechbridgeNearLogin\Helper\View;
+use LNCNearLogin\Model\Abstractions\AdminPages;
+use LNCNearLogin\Helper\View;
 
 /**
  * Class ConfigPage
- * @package TechbridgeNearLogin\Model\Constructor
+ * @package LNCNearLogin\Model\Constructor
  */
 class ConfigPage extends AdminPages
 {

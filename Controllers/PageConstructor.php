@@ -1,8 +1,8 @@
 <?php
 
-namespace TechbridgeNearLogin\Controllers;
+namespace LNCNearLogin\Controllers;
 
-use TechbridgeNearLogin\Model\Constructor\ConfigPage;
+use LNCNearLogin\Model\Constructor\ConfigPage;
 
 /**
  * Class PageConstructor

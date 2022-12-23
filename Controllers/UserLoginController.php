@@ -1,6 +1,6 @@
 <?php
 
-namespace TechbridgeNearLogin\Controllers;
+namespace LNCNearLogin\Controllers;
 
 class UserLoginController
 

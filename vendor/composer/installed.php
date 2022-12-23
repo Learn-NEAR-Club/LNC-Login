@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'name' => 'techbridge/near_login',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'bb06066aabd260382c52ae874f7920f8aa4103bc',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+        'reference' => '3a03d0d659c1c3aab9ec04263043e7347313d17b',
+        'name' => 'lnc/near_login',
         'dev' => true,
     ),
     'versions' => array(
-        'techbridge/near_login' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'bb06066aabd260382c52ae874f7920f8aa4103bc',
+        'lnc/near_login' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+            'reference' => '3a03d0d659c1c3aab9ec04263043e7347313d17b',
             'dev_requirement' => false,
         ),
     ),

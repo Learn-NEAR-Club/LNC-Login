@@ -1,10 +1,10 @@
 <?php
 
-namespace TechbridgeNearLogin\Helper;
+namespace LNCNearLogin\Helper;
 
 /**
  * Class FormData
- * @package TechbridgeNearLogin\Helper
+ * @package LNCNearLogin\Helper
  */
 class FormData
 {

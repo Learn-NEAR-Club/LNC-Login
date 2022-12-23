@@ -1,11 +1,11 @@
 <?php
 
-namespace TechbridgeNearLogin\Model\Abstractions;
+namespace LNCNearLogin\Model\Abstractions;
 
 /**
  * Class AdminPages
  *
- * @package TechbridgeNearLogin\Model\Abstractions
+ * @package LNCNearLogin\Model\Abstractions
  */
 abstract class AdminPages
 {

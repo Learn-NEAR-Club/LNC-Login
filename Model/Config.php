@@ -1,10 +1,10 @@
 <?php
 
-namespace TechbridgeNearLogin\Model;
+namespace LNCNearLogin\Model;
 
 /**
  * Class Config
- * @package TechbridgeNearLogin\Model
+ * @package LNCNearLogin\Model
  */
 class Config
 {
