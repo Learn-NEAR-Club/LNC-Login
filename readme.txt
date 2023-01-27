@@ -15,7 +15,7 @@ Login with NEAR WordPress plugin allows to easy setup and customize login with N
 
 **Benefits**
 
-1. **Provides the most popular Near Wallets**: Plugin supports "Near Wallet", "My Near Wallet", "Here Wallet", "Sender".
+1. **Provides the most popular Near Wallets**: Plugin supports "Near Wallet", "My Near Wallet", "Here Wallet", "Meteor Wallet" "Sender".
 
 2. **Easy registration and login**: If user has a Near Wallet, he already can use all functionality from your site and identified as WP User.
 
