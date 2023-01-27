@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Login With NEAR
+ * Plugin Name: Login With NEAR DEV VERSION
  * Description: web3 login with NEAR
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Learn NEAR Club
  * Author URI: http://learnnear.club/
  */

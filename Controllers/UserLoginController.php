@@ -14,6 +14,10 @@ class UserLoginController
     private function __construct()
     {
         add_action('wp_ajax_nopriv_loginWithNearLogin', [$this, 'ajaxLoginWithNear']);
+        add_action('wp_ajax_loginWithNearLogin', [$this, 'ajaxLoginWithNear']);
+
+        add_action('wp_ajax_nopriv_logoutWithNear', [$this, 'ajaxLogoutWithNear']);
+        add_action('wp_ajax_logoutWithNear', [$this, 'ajaxLogoutWithNear']);
     }
 
     public function ajaxLoginWithNear()
@@ -24,6 +28,13 @@ class UserLoginController
         ];
         if (isset($_POST['account'])) {
             $account = sanitize_text_field($_POST['account']);
+            if (!str_contains($account, '.near')) {
+                wp_send_json([
+                    'isLoggedIn' => false,
+                    'errorMessage' => 'Please use named .near account',
+                ]);
+                die;
+            }
             $userEmail = $this->getUserEmailByAccount($account);
 
             $user = get_user_by('email', $userEmail);
@@ -39,6 +50,12 @@ class UserLoginController
         }
         wp_send_json($response);
         die;
+    }
+
+    public function ajaxLogoutWithNear()
+    {
+        wp_logout();
+        wp_send_json_success();
     }
 
     /**

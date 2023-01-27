@@ -1,86 +1,107 @@
-import { setupWalletSelector } from '@near-wallet-selector/core';
-import { setupHereWallet } from '@here-wallet/near-selector';
-import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
-
-import { setupModal } from '@near-wallet-selector/modal-ui';
-import { setupNearWallet } from '@near-wallet-selector/near-wallet';
-import { map } from 'rxjs';
+import {map} from 'rxjs';
 
 import '@near-wallet-selector/modal-ui-js/styles.css';
 
 const signInClass = '.login-with-near-link';
 const signOutClass = '.logout-with-near-link';
-
-const selector = await setupWalletSelector({
-  contractId: '',
-  network: window.near_login.network,
-  modules: [
-    setupNearWallet(),
-    setupMyNearWallet(),
-    setupHereWallet()
-  ],
-});
+import { Wallet } from './near-wallet';
 
 
-window.state = selector.store.getState();
+const wallet = new Wallet({
+        createAccessKeyFor: window.near_login.contract_id || '',
+        network: 'mainnet'
+    }
+);
+await wallet.startUp();
 
-if (selector.isSignedIn()) {
-  window.wallet = await selector.wallet();
-  const [account] =  await window.wallet.getAccounts();
-  if (account) {
-    window.userAccount = account.accountId;
-  }
-}
+window.mainWallet = wallet;
+
+window.state =  wallet.walletSelector.store.getState();
+
 
 const signInWithNear = (accId) => {
-  const {ajaxUrl} = window.near_login;
-  jQuery.ajax({
-    type: 'POST',
-    url: ajaxUrl,
-    data: {
-      action: 'loginWithNearLogin',
-      account: accId,
-    },
-    success: (result) => {
-      if (result.errorMessage) {
-        alert(result.errorMessage);
-      } else {
-        location.reload();
-      }
-    },
-    error: (error) => {
-      console.log(error);
-    },
-  });
+    const {ajaxUrl} = window.near_login;
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxUrl,
+        data: {
+            action: 'loginWithNearLogin',
+            account: accId,
+        },
+        success: async (result) => {
+            if (result.errorMessage) {
+                if (result.errorMessage === 'Please use named .near account') {
+                    deleteAllCookies();
+                    window.localStorage.clear();
+                }
+                alert(result.errorMessage);
+            } else {
+                location.reload();
+            }
+        },
+        error: (error) => {
+            console.log(error);
+        },
+    });
 }
 
-const subscription = selector.store.observable
-  .pipe(
-    map((state) => state.accounts),
-  )
-  .subscribe((nextAccounts) => {
-    if (nextAccounts.length > 0 && !window?.near_login?.user) {
-      const [account] = nextAccounts;
-      signInWithNear(account.accountId);
-    }
-  });
 const logOutAction = async (event) => {
-  const wallet = await selector.wallet();
-  if (wallet) {
-    await wallet.signOut();
-  }
+    console.log('logout');
+    const {ajaxUrl} = window.near_login;
+    //event.preventDefault();
+    localStorage.setItem(`logged_in`, null);
+    deleteAllCookies();
+    window.localStorage.clear();
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxUrl,
+        data: {
+            action: 'logoutWithNear',
+        },
+        success: async (result) => {
+            window.location.reload();
+        },
+        error: (error) => {
+            console.log(error);
+        },
+    });
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const options = {};
-  if (window.near_login.account_id) {
-    options.contractId = window.near_login.account_id;
-  }
-  const modal = await setupModal(selector, options);
-  jQuery(signInClass).click(() => {
-    modal.show();
-  });
-  jQuery(signOutClass).click(async (event) => {
-    await logOutAction(event);
-  });
+window.logOutAction = logOutAction;
+
+const deleteAllCookies = () => {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+
+const subscription = window.mainWallet.walletSelector.store.observable
+    .pipe(
+        map((state) => state.accounts),
+    )
+    .subscribe((nextAccounts) => {
+        if (nextAccounts.length > 0 && !window?.near_login?.user) {
+            const [account] = nextAccounts;
+            signInWithNear(account.accountId);
+        }
+    });
+
+
+jQuery(signInClass).click(async (event) => {
+    event.preventDefault();
+    await wallet.signIn();
 });
+// jQuery(signOutClass).click(async (event) => {
+//     event.preventDefault();
+//     await logOutAction(event);
+// });
+
+
+
+
+

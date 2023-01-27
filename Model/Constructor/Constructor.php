@@ -94,7 +94,7 @@ class Constructor
 
     private function setUpActions()
     {
-        add_action('init', [&$this, 'addScripts']);
+        add_action('init', [&$this, 'addScripts'], 99);
     }
 
     public function addScripts()
@@ -103,7 +103,7 @@ class Constructor
             $this->config->getPluginName(),
             $this->config->getScriptsPath() . 'index.js',
             ['jquery'],
-            '0.01'
+            '0.01',
         );
         $localize = [
             'ajaxUrl' => admin_url('admin-ajax.php'),
