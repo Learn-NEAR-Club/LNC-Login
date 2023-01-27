@@ -31,7 +31,7 @@ Login with NEAR WordPress plugin allows to easy setup and customize login with N
 
 == Screenshots ==
 
-1. Fill the form with your configs: contract-id (your contract id, can be empty), login/logout button text (text that will be presented on frontend) classes (for extra styles), network (to use testnet or mainnet) screenshot-1.png.
+1. Fill the form with your configs: contract-id (your contract id, optional), login/logout button text (text that will be presented on frontend) classes (for extra styles), network (to use testnet or mainnet) screenshot-1.png.
 2. Add shortcode to [login_near_link] to any place on your site.
 3. Link will be on your site  screenshot-3.png.
 4. For now plugin supports NearWallet, MyNearWallet, Here Wallet screenshot-4.png.
