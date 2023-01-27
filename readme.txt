@@ -21,7 +21,7 @@ Login with NEAR WordPress plugin allows to easy setup and customize login with N
 
 3. **Call smart contracts from single endpoint**: Plugin is a wrapped implementation for official Near Wallet Selector (https://github.com/near/wallet-selector). If you use a smart contract it provides possibility to use limited access key for it. Also, you can make calls to change/view methods on another smart contracts.
 
-4. **Easy to modify**: You can easy change login, logout button text and provide advanced classed to customize style from code
+4. **Easy to modify**: You can easily change login, logout button text and provide advanced classed to customize style from code
 
 == For plugin developers ==
 * If you want to create plugin with smart contract and call it from logged users you can simply do it in this way:
