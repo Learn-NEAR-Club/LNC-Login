@@ -4,7 +4,7 @@ import '@near-wallet-selector/modal-ui-js/styles.css';
 
 const signInClass = '.login-with-near-link';
 const signOutClass = '.logout-with-near-link';
-import { Wallet } from './near-wallet';
+import {Wallet} from './near-wallet';
 
 
 const wallet = new Wallet({
@@ -16,7 +16,7 @@ await wallet.startUp();
 
 window.mainWallet = wallet;
 
-window.state =  wallet.walletSelector.store.getState();
+window.state = wallet.walletSelector.store.getState();
 
 
 const signInWithNear = (accId) => {
@@ -91,17 +91,14 @@ const subscription = window.mainWallet.walletSelector.store.observable
         }
     });
 
-
-jQuery(signInClass).click(async (event) => {
-    event.preventDefault();
-    await wallet.signIn();
+jQuery(document).ready(() => {
+    jQuery(signInClass).click(async (event) => {
+        event.preventDefault();
+        await window.mainWallet.signIn()
+    });
 });
+
 // jQuery(signOutClass).click(async (event) => {
 //     event.preventDefault();
 //     await logOutAction(event);
 // });
-
-
-
-
-

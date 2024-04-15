@@ -26,7 +26,7 @@ class Constructor
      *
      * @var mixed
      */
-    public static $options;
+    public static mixed $options;
 
     /**
      * @var Config
@@ -52,7 +52,7 @@ class Constructor
     /**
      * protect singleton  clone
      */
-    private function __clone()
+    public function __clone()
     {
 
     }
@@ -73,9 +73,9 @@ class Constructor
     }
 
     /**
-     * protect singleton __wakeup
+     * public singleton __wakeup
      */
-    private function __wakeup()
+    public function __wakeup()
     {
 
     }
@@ -107,8 +107,12 @@ class Constructor
         );
         $localize = [
             'ajaxUrl' => admin_url('admin-ajax.php'),
-            'network' => self::$options['network'],
-            'contract_id' => self::$options['contract_id'],
+            'network' => is_array(self::$options) && isset(self::$options['network'])
+                ? self::$options['network']
+                : 'mainnet',
+            'contract_id' =>  is_array(self::$options) && isset(self::$options['contract_id'])
+                ? self::$options['contract_id']
+                : '',
         ];
 
         $userId = get_current_user_id();
